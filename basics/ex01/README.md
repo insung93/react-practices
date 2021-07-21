@@ -1,7 +1,7 @@
 ## ex01: 전통적인 DOM API 기반의 애플리케이션
 1. 프로젝트 생성
     ```bash
-    $ mkdie ex01
+    $ mkdir ex01
     $ cd ex01
     $ npm init -y
     $ npm i -D express

@@ -1,7 +1,7 @@
 ## ex02: 애플리케이션 분리1
 1. 프로젝트 생성
     ```bash
-    $ mkdie ex02
+    $ mkdir ex02
     $ cd ex02
     $ npm init -y
     $ npm i -D express
