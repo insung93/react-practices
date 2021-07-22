@@ -11,12 +11,15 @@ module.exports = {
             test: /\.css$/i,
             use:['style-loader', 'css-loader']
         }, {
-            test: /\.s[ac]ss/i,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
+            test: /\.s[ac]ss$/i,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+        }, {
+            test: /\.svg$/i,
+            loader: 'file-loader',
+            options: {
+                outputPath: '/assets/images',
+                name: '[name].[ext]'
+            }
         }]
     },
     devServer: {
