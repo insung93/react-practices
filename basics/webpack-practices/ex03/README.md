@@ -1,4 +1,4 @@
-## webpack-practice: ex02
+## webpack-practice: ex03
 1. 프로젝트 생성
 ```bash
 $ mkdir ex01
@@ -19,7 +19,6 @@ $ npm i -D webpack webpack-cli express
         |       |--- index.js
         |       |--- App.js
         |--- webpack.config.js [webpack 설정 파일]
-        |--- dev-server.mjs   
     <pre>
 3. webpack.config.js
 ```js
@@ -29,6 +28,16 @@ module.exports = {
     output: {
         path : path.resolve('public'),
         filename: 'bundle.js'
+    },
+    devServer: {
+        contentBase: path.resolve('public'),
+        host: "0.0.0.0",
+        port: 9999,
+        inline: true,
+        liveReload: true,
+        hot: false,
+        compress: true,
+        historyApiFallback: true
     }
 }
 ```
@@ -37,12 +46,11 @@ module.exports = {
 ```bash
 $ npx webpack
 ```
-webpack.config.js의 output 섹션에 지정한 ./public/bundle.js 로 번들링 됨
 
 
 3. test server 실행
 ```bash
-$ node dev-server.mjs
+$ npx webpack serve --progress
 ```
 ES6 모듈로 실행(확장자를 .mjs) 해야 함.
 
