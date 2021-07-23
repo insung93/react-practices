@@ -7,7 +7,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [{
+        rules:[{
             test: /\.js$/i,
             exclude: /node_modules/,
             loader: 'babel-loader'

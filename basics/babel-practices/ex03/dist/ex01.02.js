@@ -3,11 +3,11 @@
 const users = [{
   no: 0,
   name: '마이콜',
-  email: 'michol.@gmail.com'
+  email: 'michol@gmail.com'
 }, {
   no: 1,
   name: '둘리',
-  email: 'dooly.@gmail.com'
+  email: 'dooly@gmail.com'
 }]; // 객체분해(ES6)
 
 function print(_ref) {
@@ -17,7 +17,7 @@ function print(_ref) {
     email
   } = _ref;
   // 템플릿 문자열(ES6)
-  console.log(`${no} : ${name} : ${email}`);
+  console.log(`${no}: ${name} : ${email}`);
 } // for..of(ES6)
 
 

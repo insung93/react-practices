@@ -21,7 +21,7 @@
     ```
 2.  프로젝트 디렉토리
     <pre>
-      /ex03
+      /ex04
         |--- package.json
         |--- package-lock.json
         |--- node-modules

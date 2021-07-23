@@ -10,7 +10,7 @@
     ```
 2.  프로젝트 디렉토리
     <pre>
-      /ex03
+      /ex05
         |--- package.json
         |--- package-lock.json
         |--- node-modules
@@ -60,17 +60,13 @@ module.exports = {
 }
 ```
 
+
 5. 빌드(번들링)
 ```bash
 $ npm run build
 ```
 
 6. test(개발 서버 실행)
-```bash
-$ npm start
-```
-
-6. 테스트 서버 실행
 ```bash
 $ npm start
 ```
