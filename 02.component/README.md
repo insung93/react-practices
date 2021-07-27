@@ -1,7 +1,7 @@
 ## React Practices - Component
 
-### ex01 : Property: Component 작성 (Data Flow : Top -> Down)
-### ex02 : Component Styling
+### ex01 : Property: Component 작성 (Data Flow : Top -> Down)   - Kanban Board #1
+### ex02 : Component Styling                                    - Kanban Board #2
 ### ex03 : React Event
 ### ex04 : State I      : Controlled VS Uncontrolled Component
 ### ex05 : State II     : Stateful and Pure Component

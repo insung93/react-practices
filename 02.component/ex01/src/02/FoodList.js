@@ -5,14 +5,14 @@ export default class FoodList extends Component {
     render() {
         console.log(this.props.foods);
         
-        const foods = [];
-        this.props.foods.forEach(function(food, index){
-            foods[index] = <ListItem key={food.no} name={food.name} quantity={food.quantity} />
-        });
+        // const foods = [];
+        // this.props.foods.forEach(function(food, index){
+        //     foods[index] = <ListItem key={food.no} name={food.name} quantity={food.quantity} />
+        // });
 
         return (
             <ul>
-                {foods}
+                { this.props.foods.map((food)=> <ListItem key={food.no} name={food.name} quantity={food.quantity} />)}
             </ul>
         );
     }
