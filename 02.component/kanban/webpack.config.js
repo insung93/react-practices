@@ -8,28 +8,20 @@ module.exports = (env) =>  {
         entry: entry,
         output: {
             path: path.resolve('public'),
-            filename: 'bundle.js'
+            filename: 'bundle.js',
+            assetModuleFilename: 'assets/images/[hash][ext]'
         },
         module: {
             rules:[{
-                test: /\.css$/i,
+                test: /\.(sa|sc|c)ss$/i,
                 use:[
-                    'style-loader',
-                    {loader:'css-loader', options:{ modules: true } }
+                    'style-loader', 
+                    { loader: 'css-loader', options: { modules: true} }, 
+                    'sass-loader'
                 ]
             }, {
-                test: /\.s[ac]ss$/i,
-                use: [
-                    'style-loader',
-                    {loader:'css-loader', options:{ modules: true } },
-                    'sass-loader']
-            }, {
-                test: /\.(svg|jpe?g|gif|png|tiff?|bmp|ico|)$/i,
-                loader: 'file-loader',
-                options: {
-                    outputPath: '/assets/images',
-                    name: '[name].[ext]'
-                }
+                test: /\.(png|gif|jpe?g|svg|ico|tiff?|bmp)$/i,
+                type: 'asset/resource'
             }, {
                 test: /\.js$/i,
                 exclude: /node_modules/,

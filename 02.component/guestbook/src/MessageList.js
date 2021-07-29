@@ -8,5 +8,7 @@ export default function MessageList({ messages }) {
                                                 name={ message.name }
                                                 message={message.message}/>) }
         </ul>
+
+        
     );
 }

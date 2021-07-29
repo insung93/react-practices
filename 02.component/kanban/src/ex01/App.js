@@ -1,7 +1,8 @@
 import React from 'react';
+import KanbanBoard from './KanbanBoard';
 
 export default function App() {
     return (
-       <h1>Guestbook</h1>
+        <KanbanBoard />
     );
 }
