@@ -3,10 +3,12 @@ import Task from './Task';
 
 export default function TaskList({ tasks }) {
     return (
-        <div className={'TaskList'}>
+        <div className='TaskList'>
             <ul>
-                {tasks.map(task => <Task key={task.no} name={task.name} doun={task.done} />)}
+                { tasks.map(task => <Task
+                                        key={ task.no }
+                                        name={ task.name } /> )}
             </ul>
-        </div>
+        </div>    
     );
 }

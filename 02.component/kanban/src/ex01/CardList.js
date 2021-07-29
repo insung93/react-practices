@@ -3,10 +3,13 @@ import Card from './Card';
 
 export default function CardList({ title, cards }) {
     return (
-        /* WDS webpack dev server */
         <div className={'CardList'}>
             <h1>{title}</h1>
-            {cards.map(card => <Card key={card.no} title={card.title} description={card.description} tasks={card.tasks} />)}
+            { cards.map(card => <Card
+                                    key={ card.no }
+                                    title={ card.title }
+                                    description={ card.description }
+                                    tasks={ card.tasks } />) }
         </div>
     );
 }

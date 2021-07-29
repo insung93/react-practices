@@ -6,10 +6,10 @@ export default class FoodList extends Component {
         return (
             <ul>
                 <ListItem name='Bread' quantity='10' />
-                <ListItem name='Egg' quantity='50' />
-                <ListItem name='Milk' quantity='30' />
-                <ListItem name='Carrot' quantity='20' />
-            </ul>
+                <ListItem name='Egg' quantity='20'/>
+                <ListItem name='Milk' quantity='50'/>
+                <ListItem name='Carrot' quantity='100'/>
+            </ul>  
         );
-    }
+    }    
 }

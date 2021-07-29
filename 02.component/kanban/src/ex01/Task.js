@@ -1,13 +1,9 @@
 import React from 'react';
 
-export default function Task({name, done}) {
+export default function Task({ name }) {
     return (
-        <li className={'TaskList__Task'}>
-            <input type='checkbox' checked={done} />
-            {name}
+        <li className='TaskList__Task'>
+            { name }
         </li>
-    )
+    );
 }
-
-
-

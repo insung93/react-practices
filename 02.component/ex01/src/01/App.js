@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Foodlist from './FoodList';
-export default class extends Component {
+import FoodList from './FoodList';
+
+export default class App extends Component {
     render() {
         return (
             <div id='App'>
-                <Foodlist />
-            </div>
+                <FoodList />
+            </div>    
         );
-    }
+    }    
 }
