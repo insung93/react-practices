@@ -1,35 +1,37 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-export default class TitleBar01 extends Component {
-
-    constructor() {
+export default class TitelBar01 extends Component {
+    constructor(){
         super(...arguments);
-        // this.no = 10; 
+        // this.no = 10;
         this.state = {
-            no : 10
+            no: 10
         }
     }
 
     onClickHeader(e) {
         // this.no++;
-        // console.log('TitleBar01 click!!', this.no);
-        // this.render(); // 이렇게 호출하면 안됨
-        
-        console.log('TitleBar01 click!!', ':' ,this.state.no);
+        // console.log('TitelBar01 Click!!', ":", this.no);
+        // this.render(); 
+
+        console.log('TitelBar01 Click!!', ":", this.state.no);
         this.setState({
-            no : this.state.no +1
-        })
+            no: this.state.no + 1
+        });
     }
 
     render() {
         return (
-            <h1 onClick={this.onClickHeader.bind(this)}
-                style={{
-                    cursor: 'pointer'
-                }}>
-                ex03 - Function Event Handler(Class Component) {this.state.no}
+            <h1 onClick={ this.onClickHeader.bind(this) }
+            style={ {
+                cursor: 'pointer'         
+            } }>
+                ex03 - Functional Event Handler(Class Component)
+                {
+                    /*this.no*/
+                    this.state.no
+                }
             </h1>
         )
     }
-
 }

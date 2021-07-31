@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function TitleBar02() {
-    let no = 10;
-    
-    const onClickHeader = (e) => {
-        no ++;
-        console.log('TitleBar02 click!!')
+export default function TitelBar02() {
+    const onClickHeader = (e) => { 
+        console.log('TitelBar02 Click!!'); 
     }
 
     return (
         <h1 onClick={ onClickHeader }
         style={ {
-            cursor: 'pointer'
+            cursor: 'pointer'         
         } }>
-            ex03 - Function Event Handler(Functional Component)
+            ex03 - Functional Event Handler(Functional Component)
         </h1>
     )
 }
