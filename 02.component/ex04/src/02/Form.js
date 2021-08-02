@@ -9,6 +9,7 @@ export default function Form() {
     const [validEmail, setValidEmail] = useState(false);
     const [gender, setGender] = useState('female');
     const [birthYear, setBirthYear] = useState(1984);
+    const [agreeProv, setAgreeProv] = useState('no');
 
     const onChangeInputName = function (e) {
         // setName(e.target.value);
@@ -29,6 +30,16 @@ export default function Form() {
 
     const onChangeInputGender = function(e) {
         setGender(e.target.value);
+    }
+
+    const onChangeInputProv = function(e) {
+        // API 호출
+        const status = e.target.value === 'no' ? 'yes' : 'no'
+        const url = `/prov/agree?status=${status}`;
+        console.log(url);
+        if(false) {
+            setAgreeProv(status);
+        }
     }
 
     return (
@@ -73,11 +84,16 @@ export default function Form() {
             </select>
 
             <label htmlFor="birthYear">자기소개</label>
-            <textarea id='' name='selfDescription' value={""} />
+            <textarea id='selfDescription' name='selfDescription' value={""} />
 
             <fieldset>
                 <legend>약관동의</legend>
-                <input id="agree-prov" type="checkbox" name="agreeProv" value={"yes"} defaultChecked={false} />
+                <input id="agree-prov"
+                type="checkbox"
+                name="agreeProv"
+                value={ agreeProv }
+                checked={ agreeProv === 'yes' }
+                onChange={ onChangeInputProv }/>
                 <label>서비스 약관에 동의합니다.</label>
             </fieldset>
 
