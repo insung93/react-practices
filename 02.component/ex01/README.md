@@ -16,7 +16,6 @@
     $ npm i -D prop-types
     ```
 
-
 ### Run Examples
 ```bash
 $ npm run debug src={no}
