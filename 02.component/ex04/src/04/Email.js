@@ -1,11 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Email({ firstName, lastName, email }) {
+export default function Email({no, firstName, lastName, email}) {
     return (
-        <li key={ no }>
-            {`${ firstName } ${ lastName }`}
-            <br />
+        <li>
+            { `${firstName} ${lastName}` }
+            <br/>
             { email }
         </li>
     )
+}
+
+Email.propTypes = {
+    no: PropTypes.number,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired
 }
