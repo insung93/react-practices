@@ -21,6 +21,14 @@
           |        |--- [index.js]
           |        |--- [app.config.env]
           |--- /frontend
+          |        |--- /config
+          |        |        |--- babel.config.json
+          |        |        |--- [webpack.config.json]
+          |        |--- /public
+          |        |        |--- favicon.ico
+          |        |        |--- index.html
+          |        |--- /src
+          |        |--- /assets
           |--- /node_modules
           |--- package.json
           |--- package-lock.json
@@ -29,7 +37,9 @@
 2. nodemon
 3. webpack dev server
 4. package.json
-5. node application
+5. concurrently
+6. node application
+
 
 ### Application
 1. app01.emaillist
