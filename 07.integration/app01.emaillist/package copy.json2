@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "npx mocha",
-    "dev:backend": "cross-env NODE_ENV=development nodemon backend/index.js -e js,mjs,json,env --watch backend"
+    "dev:backend": "set NODE_ENV=production && nodemon backend/index.js -e js,mjs,json,env --watch backend",
+    "dev:backend": "cross-env NODE_ENV=production nodemon backend/index.js -e js,mjs,json,env --watch backend"
   },
   "keywords": [],
   "author": "",

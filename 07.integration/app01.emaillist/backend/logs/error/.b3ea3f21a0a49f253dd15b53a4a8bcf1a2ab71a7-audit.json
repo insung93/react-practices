@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\vscode-projects\\react-practices\\07.integration\\app01.emaillist\\backend\\logs\\error\\.b3ea3f21a0a49f253dd15b53a4a8bcf1a2ab71a7-audit.json",
+    "files": [
+        {
+            "date": 1628479497209,
+            "name": "D:\\vscode-projects\\react-practices\\07.integration\\app01.emaillist\\backend\\logs\\error\\2021-08-09.error.log",
+            "hash": "8811271b5555ae58d95c6d4deb414a6b"
+        }
+    ]
+}
