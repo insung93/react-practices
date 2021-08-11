@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = (env) => ({
     mode: "none",
-    entry: path.resolve(`frontend/src/index.js`),
+    entry: path.resolve('frontend/src/index.js'),
     output: {
         path: path.resolve('backend/public'),
         filename: 'assets/js/main.js',
@@ -35,12 +35,12 @@ module.exports = (env) => ({
         host: "0.0.0.0",
         port: 9999,
         proxy: {
-            '/api' : 'http://localhost:8888'
+            '/api': 'http://localhost:8888'
         },
         inline: true,
         liveReload: true,
         hot: false,
-        compress: true,                                
+        compress: true,
         historyApiFallback: true
     }
 });
