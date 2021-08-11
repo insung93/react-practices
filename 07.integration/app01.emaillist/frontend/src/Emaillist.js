@@ -7,7 +7,7 @@ export default function Emaillist({ keyword, emails }) {
     return (
         <ul className={ 'Emaillist' }>
             { 
-                emails
+                emails && emails
                     .filter(item => item.firstName.indexOf(keyword) != -1 || item.lastName.indexOf(keyword) != -1 || item.email.indexOf(keyword) != -1)
                     .map(item => <Email
                                         key={ item.no }
