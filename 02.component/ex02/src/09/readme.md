@@ -4,6 +4,3 @@
     ```bash
     $ npm i react-modal
     ```
-2. Examples 
-   - 기본1
-   - 기본2

@@ -14,7 +14,7 @@ export default function App() {
 
     const handleClose = function() {
         setModal02IsOpen(false);
-    }
+    };
 
     return (
         <Fragment>
@@ -89,7 +89,7 @@ export default function App() {
 
 
 
-            {/* example modal04: Using css/sass styles */}
+            {/* example modal04: Using css/sass */}
             <button onClick={ () => setModal05IsOpen(true) }>modal05</button>
             <br/><br/>
 
@@ -103,11 +103,10 @@ export default function App() {
                 contentLabel="modal05 example">
                 <h1>비밀번호입력</h1>
                 <div>
-                    <form>
+
                         <label>작성시 입력했던 비밀번호를 입력하세요.</label>
-                        <br />
-                        <input type="text"/>
-                    </form>
+                        <br/><br/>
+                        <input type='text' />
                 </div>
                 <div className={ styles['modal-dialog-buttons'] }>
                     <button>확인</button>
