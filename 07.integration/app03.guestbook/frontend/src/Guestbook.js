@@ -1,16 +1,15 @@
-import React, {useEffect } from 'react';
+import React, {useEffect,useState } from 'react';
 import WriteForm from './WriteForm';
 import MessageList from './MessageList';
 import styles from './assets/scss/Guestbook.scss';
 
-import messages from './assets/json/messages.json';
 
 export default function Guestbook() {
-    //const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([]);
 
     useEffect(async () => {
         try {
-            const response = await fetch('/api/message', {
+            const response = await fetch('/api', {
                 method:'get',
                 headers:{'Content-Type': 'application/json'}
             });
@@ -24,7 +23,7 @@ export default function Guestbook() {
                 throw new Error(`${json.result} ${json.message}`);
             }
 
-            setCards(json.data);    
+            setMessages(json.data);
         } catch(err){
             console.error(err);
         }

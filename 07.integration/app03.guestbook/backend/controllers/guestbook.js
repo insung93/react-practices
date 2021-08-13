@@ -5,6 +5,7 @@ module.exports = {
     readAllMessages: async function(req, res, next) {
         try {
             const results = await model.findAllMessages();
+            console.log(results);
             res
                 .status(200)                
                 .send({

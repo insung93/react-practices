@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styles from './assets/scss/Message.scss';
 
-export default function Message({ no, name, message }) {
+export default function Message({ no, name, message, regDate }) {
     return (
         <li className={ styles.Message__List__Item }>
             <strong>{ name }</strong>
@@ -13,8 +13,9 @@ export default function Message({ no, name, message }) {
                         { line }
                     </span> : line) }
             </p>
-            <strong/>
+            <strong>{regDate}</strong>
             <a href=''>삭제</a>
+            
         </li>
     );
 }
