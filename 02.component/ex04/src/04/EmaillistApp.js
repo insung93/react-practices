@@ -4,11 +4,7 @@ import Emaillist from './Emaillist';
 import data from './assets/json/data.json';
 
 export default function EmaillistApp() {
-    
-    
-
-
-    
+    const [emails] = useState(data);
     const [keyword, setKeyword] = useState('');
  
     const notifyKeywordChanged = function(keyword) {
@@ -26,3 +22,4 @@ export default function EmaillistApp() {
         </div>
     );
 }
+

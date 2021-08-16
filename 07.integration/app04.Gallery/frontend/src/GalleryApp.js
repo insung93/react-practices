@@ -20,7 +20,6 @@ export default function GalleryApp() {
             if (!response.ok) {
                 throw new Error(`${response.status} ${response.statusText}`);
             }
-            console.log(response);
 
             const json = await response.json();
             if (json.result !== 'success') {

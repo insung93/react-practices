@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 import './assets/Form.css';
 
 export default function Form() {
     function onSubmit(e) {
         e.preventDefault();
-        console.log(e.target.email.value, " : " , e.target.password.value);
+        console.log(e.target.email.value, ":", e.target.password.value);
     }
+
     return (
-        <form id="loginForm" name="loginForm" method="post" action="/do/not/post" onSubmit={onSubmit} >
+        <form 
+            id="loginForm" 
+            name="loginForm" 
+            method="post" 
+            action="/do/not/post"
+            onSubmit={ onSubmit }>
             <label htmlFor="email">이메일</label>
             <input
                 id="email"
