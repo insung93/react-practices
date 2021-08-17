@@ -1,39 +1,60 @@
-const { response } = require('express');
-const model = require('../models/guestbook');
+const models = require('../models');
+const {Op} = require("sequelize");
 
 module.exports = {
-    readAllMessages: async function(req, res, next) {
+    create: async function (req, res, next) {
         try {
-            const results = await model.findAllMessages();
-            console.log(results);
-            res
-                .status(200)                
-                .send({
-                    result: 'success',
-                    data: results,
-                    message: null
-                });
-        } catch(err){
-          next(err);
-        }       
-    },
-    createTask: async function(req, res, next) {
-        try {
-            const cardNo = req.params['cardNo'];
-            const task = req.body;
-
-            // await model.insertTask(...) 성공했다 치고~
-
-            task.no = Date.now();
+            const result = await models.Guestbook.create(req.body);
             res
                 .status(200)
                 .send({
                     result: 'success',
-                    data: task,
+                    data: result,
                     message: null
                 });
-        } catch(err) {
+        } catch (err) {
             next(err);
         }
-    }  
+    },
+    read: async function (req, res, next) {
+        try {
+            const startNo = req.params.startNo || 0;
+            const results = await models.Guestbook.findAll({
+                attributes: ['no', 'name', 'message', 'regDate'],
+                where: (startNo > 0) ? {no: {[Op.lt]: startNo}} : {},
+                order: [
+                    ['no', 'desc']
+                ],
+                limit: 3
+            });
+
+            // setTimeout(() => {
+                res
+                    .status(200)
+                    .send({
+                        result: 'success',
+                        data: results,
+                        message: null
+                    });
+            // }, 1000);
+        } catch (err) {
+            next(err);
+        }
+    },
+    delete: async function (req, res, next) {
+        try {
+            const result = await models.Guestbook.destroy({
+                where: {
+                    [Op.and]: [{no: req.params.no}, {password: req.body.password}]
+                }
+            });
+            res.send({
+                result: 'success',
+                data: result === 0 ? null : req.params.no,
+                message: null
+            });
+        } catch (err) {
+            next(err);
+        }
+    }
 }

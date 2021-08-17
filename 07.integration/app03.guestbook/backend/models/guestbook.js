@@ -1,24 +1,40 @@
-const fs = require('fs');
-const util = require('util');
-const path = require('path');
-const dbconn = require('./dbconn');
+const {Sequelize, DataTypes} = require('sequelize');
 
-
-module.exports = {
-    findAllMessages: async function() {
-        const conn = dbconn();
-        const query = util.promisify(conn.query).bind(conn);
-        try {
-            return await query(
-                "select no, name, message, date_format(reg_date,'%Y-%m-%d %h:%i:%s') as regDate from guestbook order by no desc",
-                []
-            );
-        } catch(e) {
-            console.error(e);
-        } finally {
-            conn.end();
+module.exports = function (sequelize) {
+    return sequelize.define('Guestbook', {
+        no: {
+            field: 'no',
+            type: DataTypes.BIGINT(11),
+            primaryKey: true,
+            autoIncrement: true
+        },
+        name: {
+            field: 'name',
+            type: DataTypes.STRING(45),
+            allowNull: false
+        },
+        password: {
+            field: 'password',
+            type: DataTypes.STRING(45),
+            allowNull: false
+        },
+        message: {
+            field: 'message',
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        regDate: {
+            field: 'reg_date',
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Sequelize.NOW
         }
-    },
-    insertTask: async function() {
-    }
+    }, {
+        underscored: true,
+        freezeTableName: true,
+        timestamps: true,
+        createdAt: false,
+        updatedAt: false,
+        tableName: 'guestbook'
+    });
 }

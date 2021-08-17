@@ -1,92 +1,80 @@
-import React, { Fragment, useState, useRef, useEffect } from 'react';
+import React, {Fragment, useRef, useState} from 'react';
 import Modal from "react-modal";
-import styles from "./assets/scss/modal.scss";
-
+import styles from './assets/scss/Header.scss';
+import modalStyles from './assets/scss/modal.scss';
 
 Modal.setAppElement('body');
 
-export default function App() {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+export default function Header({notifyImage}) {
 
     const refForm = useRef(null);
-    // const [comment, setComment] = useState("");
-    // const [selectedFile, setSelectedFile] = useState(null);
-    const [images, setImages] = useState([]);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
+    const handleSubmit = function (e) {
+        e.preventDefault();
 
-    const handleSubmit = async function(e) {
-        try {
-            e.preventDefault();
-            console.log("fetch or axios file upload!");
-        } catch (err) {
-            console.error(err);
+        // Validation
+        if (e.target['comment'].value === '') {
+            console.error(`validation ${e.target['comment'].placeholder} is empty ''`);
+            return;
         }
+
+        if (e.target['uploadImage'].files.length === 0) {
+            console.error(`validation ${e.target['uploadImage'].placeholder} is empty`);
+            return;
+        }
+
+        const comment = e.target['comment'].value;
+        const file = e.target['uploadImage'].files[0];
+
+        notifyImage.add(comment, file);
+        setModalIsOpen(false);
     }
-
-    useEffect(async () => {
-        try {
-            const response = await fetch('/api', {
-                method:'get',
-                headers:{'Content-Type': 'application/json'}
-            });
-
-            if(!response.ok) {
-                throw new Error(`${response.status} ${response.statusText}`);
-            }
-
-            const json = await response.json();
-            if(json.result !== 'success'){
-                throw new Error(`${json.result} ${json.message}`);
-            }
-
-            setImages(json.data);
-        } catch(err){
-            console.error(err);
-        }
-    }, []);
-
 
     return (
         <Fragment>
-            <button onClick={ () => setModalIsOpen(true) }>upload</button>
-            <br/><br/>
-
+            <div className={styles.Header}>
+                <h1>My Photos</h1>
+                <a
+                    className={styles.UploadButton}
+                    onClick={() => setModalIsOpen(true)}>
+                    이미지 올리기
+                </a>
+            </div>
             <Modal
                 isOpen={modalIsOpen}
-                onRequestClose={ () => setModalIsOpen(false) }
-                shouldCloseOnOverlayClick={ true }
-                className={ styles.Modal }
-                overlayClassName={ styles.Overlay }
-                style={ {content: {width: 350}} }
-                contentLabel="modal05 example">
-                <h1>비밀번호입력</h1>
+                onRequestClose={() => setModalIsOpen(false)}
+                shouldCloseOnOverlayClick={true}
+                className={modalStyles.Modal}
+                overlayClassName={modalStyles.Overlay}
+                style={{content: {width: 350}}}>
+                <h1>이미지(사진) 등록</h1>
                 <div>
                     <form
-                        onSubmit={ handleSubmit }
-                        ref={ refForm }>
-                        <label>코멘트</label>
-                        <br/>
+                        className={styles.FormUpload}
+                        onSubmit={handleSubmit}
+                        ref={refForm}>
                         <input
-                            type={ 'text' }
-                            name={ 'comment' }/>
+                            type={'text'}
+                            name={'comment'}
+                            placeholder={'설명(코멘트)'}/>
                         <br/><br/>
-                        <label>이미지</label>
+                        <label>이미지(사진)</label>
                         <br/>
                         <input
-                            type={ 'file' }
-                            name={ 'file' } />
+                            type={'file'}
+                            name={'uploadImage'}
+                            placeholder={'이미지(사진)'}/>
                     </form>
                 </div>
-                <div className={ styles['modal-dialog-buttons'] }>
-                    <button onClick={ () => {
-                        // refForm.current.submit();
-                        refForm.current.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
-                    } }>확인</button>
-                    <button onClick={ () => setModalIsOpen(false) }>취소</button>
+                <div className={modalStyles['modal-dialog-buttons']}>
+                    <button onClick={() => {
+                        refForm.current.dispatchEvent(new Event("submit", {cancelable: true, bubbles: true}));
+                    }}>확인
+                    </button>
+                    <button onClick={() => setModalIsOpen(false)}>취소</button>
                 </div>
             </Modal>
-
-
         </Fragment>
-    );
+    )
 }
