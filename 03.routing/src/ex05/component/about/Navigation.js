@@ -2,11 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../../assets/scss/component/about/Navigation.scss';
 
-export default function Navigation() {
+export default function Navigation(){
     return (
         <nav className={styles.About}>
-            <NavLink to={'/about/me'}>Me</NavLink>
-            <NavLink to={'/about/Location'}>Location</NavLink>
+            <NavLink to='/about/me'>Me</NavLink>
+            <span/>
+            <NavLink to='/about/location'>Location</NavLink>
         </nav>
-    );
+    )
 }
